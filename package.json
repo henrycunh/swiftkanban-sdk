@@ -1,0 +1,42 @@
+{
+  "name": "swiftkanban-sdk",
+  "version": "1.0.0",
+  "description": "A SwiftKanban SDK (for those dire corporate environments)",
+  "main": "index.js",
+  "exports": "./build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "prepare": "tsc",
+    "build": "tsc",
+    "start": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henrycunh/swiftkanban-sdk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/henrycunh/nuanc-swiftkanban-driver/issues"
+  },
+  "homepage": "https://github.com/henrycunh/nuanc-swiftkanban-driver#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^15.14.9",
+    "husky": "^7.0.2",
+    "prettier": "^2.4.1",
+    "pretty-quick": "^3.1.1",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "axios": "^0.22.0",
+    "consola": "^2.15.3"
+  },
+  "type": "module"
+}

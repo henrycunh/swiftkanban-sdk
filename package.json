@@ -8,6 +8,7 @@
   "scripts": {
     "prepare": "tsc",
     "build": "tsc",
+    "sandbox": "yarn build && node --no-warnings --loader ts-node/esm src/test.ts",
     "start": "ts-node src/index.ts"
   },
   "repository": {

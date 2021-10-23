@@ -7,8 +7,9 @@ import SK from 'swiftkanban-sdk'
 
 const client = new SK({
     token: 'XXXX-XXX',
-    host: 'example.swiftkanban.com/restapi'
+    host: 'https://example.swiftkanban.com/restapi',
+    boardId: 'XXXX' // this is optional, you could pass the boardId through arguments in any method
 })
 
-const cardList = await client.searchCard('foo bar card', '<boardId>') 
+const cardList = await client.card.search('foo bar card')
 ```

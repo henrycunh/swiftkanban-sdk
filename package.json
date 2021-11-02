@@ -1,6 +1,6 @@
 {
   "name": "swiftkanban-sdk",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "A SwiftKanban SDK (for those dire corporate environments)",
   "types": "./dist/index.d.ts",
   "files": [

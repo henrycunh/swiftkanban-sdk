@@ -47,7 +47,6 @@ export class Card {
             .reduce((acc, [key, value]) => `${key}:{$eq:${value}},${acc}`, '')
             .concat(cardTitle ? `name:{$lkw:${cardTitle}}` : '')
         
-        console.log(filterReduced)
         const { data } = await SK.handleError(
             this.client.get(`/card-operations/boards/${this.getBoardId(boardId)}/cards`, {
                 params

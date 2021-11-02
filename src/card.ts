@@ -35,15 +35,20 @@ export class Card {
      * @param boardId ID of the board you're searching the card on
      * @returns List of cards matching the title
      */
-    async search(cardTitle: string, boardId?: string) {
+    async search(cardTitle: string,  fields?: string[], filter?: { [key: string]: string }, boardId?: string) {
         // SK doesn't accept params ending with the `foo[]`
         // notation so I'm obliged to implement this bullshit
         const params = new URLSearchParams()
-        for (const field of ['name', 'id', 'workType', 'cardNumber']) {
+        for (const field of [...(fields || []), 'name', 'id', 'workType', 'cardNumber']) {
             params.append('fieldName', field)
         }
-        params.append('advanceFilter', `name:{$lkw:${cardTitle}}`)
-        
+        const filterReduced = Object
+            .entries({...filter} || {})
+            .reduce((acc, [key, value]) => `${key}:{$eq:{${value}},${acc}`, '')
+            .concat(`name:{$lkw:${cardTitle}}`)
+            
+        params.append('advanceFilter', filterReduced)
+        console.log(filterReduced)
         const { data } = await SK.handleError(
             this.client.get(`/card-operations/boards/${this.getBoardId(boardId)}/cards`, {
                 params
